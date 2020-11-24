@@ -16,19 +16,32 @@ struct ContentView: View {
     @State private var showingPlaceDetails = false
     @State private var showingEditScreen = false
     @State private var isUnlocked = false
+    @State private var showingUnlockError = false
 
     var body: some View {
         ZStack {
             if isUnlocked {
-                MapView(centerCoordinate: $centerCoordinate, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: locations)
+                MapView(
+                    centerCoordinate: $centerCoordinate,
+                    selectedPlace: $selectedPlace,
+                    showingPlaceDetails: $showingPlaceDetails,
+                    annotations: locations
+                )
                     .edgesIgnoringSafeArea(.all)
-                CirclePointer()
+
+                CirclePointer(showingPlaceDetails: $showingPlaceDetails, selectedPlace: $selectedPlace, showingEditScreen: $showingEditScreen)
                 
                 VStack {
                     Spacer()
                     HStack {
                         Spacer()
-                        AddAnnotationButton(centerCoordinate: $centerCoordinate, locations: $locations, selectedPlace: $selectedPlace, showingEditScreen: $showingEditScreen)
+
+                        AddAnnotationButton(
+                            centerCoordinate: $centerCoordinate,
+                            locations: $locations,
+                            selectedPlace: $selectedPlace,
+                            showingEditScreen: $showingEditScreen
+                        )
                     }
                 }
             } else {
@@ -39,16 +52,14 @@ struct ContentView: View {
                 .background(Color.blue)
                 .foregroundColor(.white)
                 .clipShape(Capsule())
+                .alert(isPresented: $showingUnlockError) {
+                    Alert(
+                        title: Text("Uh Oh"),
+                        message: Text("Something went wrong with authenticating"),
+                        dismissButton: .default(Text("I'll try again"))
+                    )
+                }
             }
-        }
-        .alert(isPresented: $showingPlaceDetails) {
-            Alert(
-                title: Text(selectedPlace?.title ?? "Unknown"),
-                message: Text(selectedPlace?.subtitle ?? "Missing Place Information"),
-                primaryButton: .default(Text("Ok")),
-                secondaryButton: .default(Text("Edit")) {
-                self.showingEditScreen = true
-            })
         }
         .sheet(isPresented: $showingEditScreen, onDismiss: saveData) {
             if self.selectedPlace != nil {
@@ -90,13 +101,12 @@ struct ContentView: View {
 
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             let reason = "Please authenticate yourself to unlock your places."
-            print("hello")
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
                 DispatchQueue.main.async {
                     if success {
                         self.isUnlocked = true
                     } else {
-                        // error
+                        self.showingUnlockError.toggle()
                     }
                 }
             }
