@@ -13,6 +13,7 @@
 		070BFEAE256B5A01009E9653 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070BFEAD256B5A01009E9653 /* Result.swift */; };
 		070BFEB1256CAAAD009E9653 /* MKPointAnnotation-Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070BFEB0256CAAAD009E9653 /* MKPointAnnotation-Codable.swift */; };
 		07263490256DC99600D813D0 /* CirclePointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726348F256DC99500D813D0 /* CirclePointer.swift */; };
+		07263497256DCBEA00D813D0 /* AddAnnotationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07263496256DCBEA00D813D0 /* AddAnnotationButton.swift */; };
 		078111C425679D950078868F /* BucketListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078111C325679D950078868F /* BucketListApp.swift */; };
 		078111C625679D950078868F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078111C525679D950078868F /* ContentView.swift */; };
 		078111C825679D970078868F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 078111C725679D970078868F /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		070BFEAD256B5A01009E9653 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		070BFEB0256CAAAD009E9653 /* MKPointAnnotation-Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation-Codable.swift"; sourceTree = "<group>"; };
 		0726348F256DC99500D813D0 /* CirclePointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclePointer.swift; sourceTree = "<group>"; };
+		07263496256DCBEA00D813D0 /* AddAnnotationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnnotationButton.swift; sourceTree = "<group>"; };
 		078111C025679D950078868F /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		078111C325679D950078868F /* BucketListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListApp.swift; sourceTree = "<group>"; };
 		078111C525679D950078868F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				070BFEA7256B54FD009E9653 /* EditView.swift */,
 				070BFEA4256B5371009E9653 /* MKPointAnnotation-ObservableObject.swift */,
 				078111C525679D950078868F /* ContentView.swift */,
+				07263496256DCBEA00D813D0 /* AddAnnotationButton.swift */,
 				0726348F256DC99500D813D0 /* CirclePointer.swift */,
 				070BFEB0256CAAAD009E9653 /* MKPointAnnotation-Codable.swift */,
 				070BFE962569B683009E9653 /* MapView.swift */,
@@ -158,6 +161,7 @@
 			files = (
 				070BFEB1256CAAAD009E9653 /* MKPointAnnotation-Codable.swift in Sources */,
 				07263490256DC99600D813D0 /* CirclePointer.swift in Sources */,
+				07263497256DCBEA00D813D0 /* AddAnnotationButton.swift in Sources */,
 				070BFEAE256B5A01009E9653 /* Result.swift in Sources */,
 				078111C625679D950078868F /* ContentView.swift in Sources */,
 				070BFEA8256B54FD009E9653 /* EditView.swift in Sources */,
